@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eeeey cabrona, be my Valentine!!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%; /* Make sure it doesn't overflow on smaller screens */
+            width: 700px;
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+            font-size: 2rem; /* Responsive font size */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: red;
+            font-size: 4rem; /* Responsive font size */
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            font-size: 4rem;
+            color: red;
+        }
+
+        .btn {
+            font-size: 1.2rem;
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .yes {
+            background-color: red;
+            color: white;
+        }
+
+        .no {
+            background-color: gray;
+            color: white;
+        }
+
+        /* Ensuring the no button doesn't go off screen */
+        .no:hover {
+            position: absolute;
+            top: calc(10% + (random() * 80%));
+            left: calc(10% + (random() * 80%));
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem; /* Smaller font size on small devices */
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .container {
+                width: 90%; /* Take more space on smaller devices */
+                padding: 15px;
+            }
+
+            .heart {
+                font-size: 3rem; /* Adjust the heart size */
+            }
+        }
+    </style>
+    <script>
+        function sayYes() {
+            document.getElementById("question").innerHTML = "good girl 😘";
+            document.getElementById("answer").innerHTML = "i love you so much baby 💕💕💕💕💕🍑🍑🍑";
+            document.getElementById("buttons").style.display = "none";
+            document.getElementById("image").src = "yes.jpg";
+        }
+
+        function moveButton() {
+            let btn = document.getElementById("noButton");
+            let maxWidth = window.innerWidth - btn.offsetWidth;
+            let maxHeight = window.innerHeight - btn.offsetHeight;
+
+            let newX = Math.random() * maxWidth;
+            let newY = Math.random() * maxHeight;
+
+            btn.style.position = "absolute";
+            btn.style.left = `${newX}px`;
+            btn.style.top = `${newY}px`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="./feet.jpg" alt="feeeeeeeeet" style="width: 300px; height: auto;"/>
+        <h1 id="question">Lizaaaaaaa, will you be my Valentine? 🍑</h1>
+        <h2 id="answer"></h2>
+        <div id="buttons">
+            <button class="btn yes" onclick="sayYes()">Yes</button>
+            <button class="btn no" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+</body>
+</html>
